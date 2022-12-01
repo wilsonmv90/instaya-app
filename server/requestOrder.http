@@ -1,0 +1,18 @@
+###
+POST http://localhost:9000/api/orderRegister HTTP/1.1
+Content-Type: application/json
+
+{
+"fecha":"23/05/2022",
+"hora":"12",
+"Alto":"5",
+"Ancho":"8",
+"largo":"12",
+"peso":"20",
+"DirrecciónRecogida":"8",
+"CiudadRecogida":"Barranquilla",
+"NombreDestinatario":"arnulfo garcia",
+"CedulaDestinatario":"11432245634",
+"DirrecciónEntrega":"8",
+"CiudadEntrega":"Medellin",
+}
