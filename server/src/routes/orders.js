@@ -1,20 +1,26 @@
 const express = require('express');
-const orderRegisterSchema = require('../models/orderRegister');
+const orderSchema = require('../models/order');
 
 const router = express.Router();
 
 // Registro de Ordenes
-router.post('/orderRegister', (req, res) => {
-  const orderRegister = orderRegisterSchema(req.body);
-  orderRegister
+router.post('/orders', (req, res) => {
+  const order = orderSchema(req.body);
+  order
     .save()
-    .then((data) => res.json(data))
-    .catch((error) => res.json({ message: error }));
+    .then((data) => {
+      console.log(data,"dataaaaaaaaaaaaaaaaaaa")
+      res.json(data)
+    })
+    .catch((error) => {
+      console.log(error,"ERRRRRRRRRRRROOOOOOWWWW")
+      res.json({ message: error })
+    });
 });
 
 // obtener todas las Ordenes
-router.get('/orderRegister', (req, res) => {
-  orderRegisterSchema
+router.get('/orders', (req, res) => {
+  orderSchema
     .find()
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
@@ -22,9 +28,9 @@ router.get('/orderRegister', (req, res) => {
 
 // obtener una Orden especifica
 
-router.get('/orderRegister/:id', (req, res) => {
+router.get('/orders/:id', (req, res) => {
   const { id } = req.params;
-  orderRegisterSchema
+  orderSchema
     .findById(id)
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
@@ -32,12 +38,12 @@ router.get('/orderRegister/:id', (req, res) => {
 });
 
 // actualizar Orden
-/* router.put('/orderRegister/:id', (req, res) => {
+/* router.put('/orders/:id', (req, res) => {
   const { id } = req.params;
   const {
     name, usuario, contrasena, email,
   } = req.body;
-  orderRegisterSchema
+  orderSchema
     .updateOne({ _id: id }, {
       $set: {
         name, usuario, contrasena, email,
@@ -48,9 +54,9 @@ router.get('/orderRegister/:id', (req, res) => {
 }); */
 
 // eliminar una Orden
-router.delete('/orderRegister/:id', (req, res) => {
+router.delete('/orders/:id', (req, res) => {
   const { id } = req.params;
-  orderRegisterSchema
+  orderSchema
     .remove({ _id: id })
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));

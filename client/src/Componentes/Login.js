@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import bg_image from '../assets/image-login.jpg';
 
-
-
 export const Login = () => {
   return (
     <div class="container">

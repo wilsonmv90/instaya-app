@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const orderRegisterSchema = mongoose.Schema({
+const orderSchema = mongoose.Schema({
   fecha: {
     type: String,
     required: true,
@@ -9,11 +9,11 @@ const orderRegisterSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  Alto: {
+  alto: {
     type: String,
     required: true,
   },
-  Ancho: {
+  ancho: {
     type: String,
     required: true,
   },
@@ -25,30 +25,30 @@ const orderRegisterSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  DirrecciónRecogida: {
+  dirreccionRecogida: {
     type: String,
     required: true,
   },
-  CiudadRecogida: {
+  ciudadRecogida: {
     type: String,
     required: true,
   },
-  NombreDestinatario: {
+  nombreDestinatario: {
     type: String,
     required: true,
   },
-  CedulaDestinatario: {
+  cedulaDestinatario: {
     type: String,
     required: true,
   },
-  DirrecciónEntrega: {
+  dirreccionEntrega: {
     type: String,
     required: true,
   },
-  CiudadEntrega: {
+  ciudadEntrega: {
     type: String,
     required: true,
   },
 });
 
-module.exports = mongoose.model('orderRegister', orderRegisterSchema);
+module.exports = mongoose.model('order', orderSchema);
